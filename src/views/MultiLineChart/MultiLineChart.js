@@ -55,7 +55,7 @@ const MultilineChart = ({ data = [], margin = {} }) => {
                             color={color}
                         />
                     ))}
-                    <Area data={data[0].items} xScale={xScale} yScale={yScale} />
+                    <Area data={data.length ? data[0].items : []} xScale={xScale} yScale={yScale} />
                     <Axis
                         type="left"
                         scale={yScaleForAxis}
