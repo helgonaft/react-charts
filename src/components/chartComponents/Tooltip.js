@@ -33,7 +33,6 @@ const Tooltip = ({
             const tooltipContent = d3.select(ref.current).select(".tooltipContent");
             tooltipContent.attr("transform", (cur, i, nodes) => {
                 const nodeWidth = nodes[i] ?.getBoundingClientRect() ?.width || 0;
-                console.log(nodeWidth)
                 const translateX = nodeWidth + x > width ? x - nodeWidth - 12 : x + 8;
                 return `translate(${translateX}, ${-margin.top})`;
             });
@@ -120,7 +119,6 @@ const Tooltip = ({
                 const yPos = yScale(d.value);
 
                 onChangePosition(d, i, isVisible);
-                console.log(isVisible, xPos, yPos);
 
                 return isVisible
                     ? `translate(${xPos}, ${yPos})`
