@@ -1,10 +1,8 @@
-/** Overlay.js */
 import React from "react";
 import PropTypes from "prop-types";
 
 /**
  * Use Overlay as a wrapper for components that need mouse events to be handled.
- * For example: Tooltip, AxisX.
  */
 const Overlay = React.forwardRef(({ width, height, children }, ref) => (
   <g>
