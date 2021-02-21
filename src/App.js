@@ -21,6 +21,8 @@ const formatChartItems = (data, level) => {
   return data.length ? data.map((d) => ({ value: d[level], date: new Date(d.day) })) : []
 }
 
+const noDataMessage = "We are sorry, but there is no data for selected ports. Please change origin or/and destination port.";
+
 export default function App() {
   // by default market average data is selected
   const [selectedItems, setSelectedItems] = useState(['Market Average']);
@@ -56,6 +58,12 @@ export default function App() {
     loadRates(origin, destination).then(
       res => {
         setRates(res.data);
+        const nonZeroData = res.data.filter(i => i.mean && i.high && i.low);
+        if (!nonZeroData.length) {
+          setErrorMessage(noDataMessage);
+          setTotalPoints(0);
+          return;
+        }
         setTotalPoints(res.data.length);
         setDates({ startDate: res.data[0].day, endDate: res.data[res.data.length - 1].day })
         marketAverage.items = formatChartItems(res.data, 'mean');
@@ -69,7 +77,7 @@ export default function App() {
       },
       err => {
         if (err.response.status == 404) {
-          setErrorMessage("We are sorry, but there is no data for selected ports. Please change origin or/and destination port.");
+          setErrorMessage(noDataMessage);
         } else {
           setErrorMessage(err.message);
         }
