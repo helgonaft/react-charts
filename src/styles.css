@@ -1,0 +1,52 @@
+body {
+    font-family: sans-serif;
+    background-color: whitesmoke;
+}
+
+.App {
+    width: 80vw;
+    margin: auto;
+    margin-top: 30px;
+    background-color: white;
+    border: 1px solid white;
+}
+
+.axisX text {
+    text-anchor: start;
+}
+
+.baseGridLine line {
+    stroke: rgba(255, 255, 255, 0.5);
+}
+
+.chart_tooltip text {
+    font-size: 12px;
+    fill: #ffffff;
+}
+
+.tooltipLine {
+    stroke: #1d63ff;
+    stroke-width: 1px;
+}
+
+.tooltipContent .contentTitle {
+    font-weight: bold;
+}
+
+.tooltipLinePoint {
+    fill: #1d63ff;
+}
+
+.legendContainer {
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.checkbox {
+    margin: 10px;
+}
+
+.checkbox:hover {
+    cursor: pointer;
+}
