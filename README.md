@@ -1,10 +1,10 @@
-# Getting Started with Create React App
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You should have yarn installed on your machine to start the app.
+Requests to get rates are blocked with CORS, on the api side there is no header for cross-origin requests, so for appropriate work of application CORS extension should be enabled in a browser.
 
 ## Available Scripts
 
-In the project directory, you can run:
+To start the application run:
 
 ### `yarn start`
 
